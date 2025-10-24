@@ -1,14 +1,15 @@
-const search = () => {
-    document.addEventListener("click", async () => {
-        
-        response = await fetch('http://localhost/info2180-lab4/info2180-lab4/superheroes.php')
-        data = await response.text();
+const search = async (e) => {
+    
 
-        alert(data)
+    e.preventDefault();
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    
+    response = await fetch(`superheroes.php?query=${name}`)
+    data =await response.text();
 
-        .catch(error => {
-            console.log(error)
-        })
-
-    })
+    document.getElementById('result').innerHTML = data;
+          
 }
+
+
+

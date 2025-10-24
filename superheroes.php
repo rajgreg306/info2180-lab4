@@ -65,8 +65,36 @@ $superheroes = [
 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+
+<?php
+    
+    $query = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_STRING);
+
+    if($query === null || $query === ''){
+        foreach($superheroes as $superhero){      
+            echo "<ul>";
+            echo "<li>{$superhero['name']}</li>";
+            echo "</ul>";
+        }
+    }
+    
+    else{
+        
+       $matches = array_filter($superheroes, function($hero) use ($query) {
+        return stripos($hero['alias'], $query) !== false || stripos($hero['name'], $query) !== false;
+    });
+
+    if (!empty($matches)) {
+        foreach ($matches as $hero) {
+            echo "<div class='hero-content'>";
+            echo "<h3>" . strtoupper($hero['alias']) . "</h3>";
+            echo "<h4> A.K.A " . strtoupper($hero['name']) . "</h4>";
+            echo "<p>{$hero['biography']}</p>";
+            echo "</div>";
+        }
+    } else {
+        echo "<p>Superhero not found</p>";
+    }
+    }
+         
+?>

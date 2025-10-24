@@ -5,12 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css"> 
-    <script src="app.js"></script>
+    <script src="app.js" ></script>
 </head>
 <body>
     
-    <h1>Avengers Character Search</h1>
-    <button onclick="search()">Search</button>
+    <div class="title-holder">
+        <h1 class="title">AVENGERS CHARACTER SEARCH</h1>
+    </div>
+    
+    <div class="text-holder">
+        <p class="input-title">Search by Full Name or Alias</p>
+        <form onsubmit="search(event)">
+            <input type="text" placeholder="e.g. Captain America or Steve Rogers" 
+            id="name" class="input-field">
+            <button type="submit" class="button">Search</button>
+        </form>
+    </div>
+    
+    
+    <br>
+    
+    <div class="result-holder">
+        <h1 class="result-header">RESULT</h1>
+        <hr>
+        <div id="result" class="result">
+        
+        </div>
+    </div>
+    
 
 
 </body>
