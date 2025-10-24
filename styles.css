@@ -1,4 +1,4 @@
-bodY{
+body{
     background-color: hsla(0, 0%, 95%, 0.950);
 }
 
@@ -84,4 +84,10 @@ bodY{
 .result-holder p{
     font-size: 20px;
 
+}
+
+.not-found{
+    font-size: 20px;
+    color: rgba(255, 0, 0, 0.78);
+    font-weight: bold;
 }

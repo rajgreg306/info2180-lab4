@@ -93,7 +93,7 @@ $superheroes = [
             echo "</div>";
         }
     } else {
-        echo "<p>Superhero not found</p>";
+        echo "<p class = 'not-found'>SUPERHERO NOT FOUND</p>";
     }
     }
          
